@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: API-Gateway
+    
+  cloud:
+    gateway:
+      routes:
+        - id: MICRO-SERVICE-1
+          uri: lb://MICRO-SERVICE-1
+          predicates:
+            - Path=/**
+        - id: MICRO-SERVICE-2
+          uri: lb://MICRO-SERVICE-2
+          predicates:
+            - Path=/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+server:
+  port: 8085
