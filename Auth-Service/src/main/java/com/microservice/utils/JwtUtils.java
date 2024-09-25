@@ -1,6 +1,6 @@
 package com.microservice.utils;
 
-import org.springframework.security.core.userdetails.UserDetails;
+//import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import io.jsonwebtoken.Claims;
@@ -35,10 +35,10 @@ public class JwtUtils {
 //		return Keys.hmacShaKeyFor(keyBytes);
 //	}
 	
-	public Boolean validateToken(String token, UserDetails userDetails) {
-		final String username = getUsernameFromToken(token);
-		return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
-	}
+//	public Boolean validateToken(String token, UserDetails userDetails) {
+//		final String username = getUsernameFromToken(token);
+//		return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
+//	}
 	
     private Boolean isTokenExpired(String token) {
         final Date expiration = getExpirationDateFromToken(token);

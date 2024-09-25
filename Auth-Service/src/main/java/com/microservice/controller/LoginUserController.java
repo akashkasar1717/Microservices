@@ -27,10 +27,10 @@ public class LoginUserController {
 		return ResponseEntity.ok("Saved Successfully");
 	}
 	
-	@GetMapping("/get")
-	public String getUser() {
-		String token = jwtUtils.generateToken("AKASHKASAR");
-		System.out.println(token);
-		return "Working";
-	}
+//	@GetMapping("/get")
+//	public String getUser() {
+//		String token = jwtUtils.generateToken("AKASHKASAR");
+//		System.out.println(token);
+//		return "Working";
+//	}
 }

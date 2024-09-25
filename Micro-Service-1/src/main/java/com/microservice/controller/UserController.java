@@ -17,6 +17,7 @@ import com.microservice.external.AddressExternal;
 import com.microservice.service.UserService;
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.github.resilience4j.retry.annotation.Retry;
 
 @RestController
 public class UserController {
@@ -42,6 +43,7 @@ public class UserController {
 
 	@GetMapping("user/{id}")
 	@CircuitBreaker(name="AddressBreaker", fallbackMethod="addressMethodFallback")
+//	@Retry(name="AddressBreaker", fallbackMethod="addressMethodFallback")
 	public User getUserById(@PathVariable Long id) {
 		User user = userService.fetchUser(id);
 		Address address = addressExternal.getAddress(id);

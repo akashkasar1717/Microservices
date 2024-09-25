@@ -1,7 +1,7 @@
 package com.microservice.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
+//import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -27,10 +27,10 @@ public class LoginUserServiceImpl implements LoginUserService {
 			e.printStackTrace();
 		}
 	}
-
-	@Override
-	public UserDetails loadUserByUserName(String username) {
-		return loadUserByUserName(username);
-	}
+//
+//	@Override
+//	public UserDetails loadUserByUserName(String username) {
+//		return loadUserByUserName(username);
+//	}
 
 }
