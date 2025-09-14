@@ -2,6 +2,8 @@ package com.microservice.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +24,8 @@ import io.github.resilience4j.retry.annotation.Retry;
 @RestController
 public class UserController {
 	
+    private static final Logger log = LoggerFactory.getLogger(UserController.class);
+	
 	@Autowired
 	AddressExternal addressExternal;
 
@@ -30,6 +34,7 @@ public class UserController {
 	
 	@GetMapping("user")
 	public List<User> userHandler() {
+        log.info("Hello endpoint was called");
 		List<User> user = userService.fetchUserList();
 		return user;
 	}
@@ -46,6 +51,7 @@ public class UserController {
 //	@Retry(name="AddressBreaker", fallbackMethod="addressMethodFallback")
 	public User getUserById(@PathVariable Long id) {
 		User user = userService.fetchUser(id);
+		log.info("addresss endpoint was called");
 		Address address = addressExternal.getAddress(id);
 		user.setAddress(address);
 		return user;
